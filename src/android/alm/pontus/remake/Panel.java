@@ -55,7 +55,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 		
 		switch(eventAction){
 		case MotionEvent.ACTION_DOWN:
-			new Shot((int) event.getX(), (int) event.getY(), 1, 1, 0, -10, shot, false);
+			new Shot((int) event.getX(), (int) event.getY(), 1, 0, 0, -10, shot, false);
 			break;
 		}
 		return true;

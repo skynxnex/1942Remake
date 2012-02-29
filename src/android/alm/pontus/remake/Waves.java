@@ -2,6 +2,8 @@ package android.alm.pontus.remake;
 
 import java.util.ArrayList;
 
+import android.util.Log;
+
 public class Waves {
 
 	private int counter;
@@ -17,12 +19,15 @@ public class Waves {
 		if(Panel.newWave) {
 			if(counter == 4 || counter == 8) {
 				miniBoss();
+				Log.d("WAVE", "miniboss");
 			}else if(counter == 12) {
 				bigBoss();
+				Log.e("WAVE", "bigboss");
 			} else {
 				normalWave();
 			}
 			if(counter >= 12){
+				Log.e("WAVE", "resetting counter");
 				counter = 1;
 			} else {
 				counter ++;

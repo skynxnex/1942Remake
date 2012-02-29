@@ -54,5 +54,17 @@ public class EntityManager {
 				entities.remove(entity);
 			}
 		}
+		CopyOnWriteArrayList<Entity> enemyPlanes = CollisionManager.INSTANCE.getEnemyPlanes();
+		for(Entity entity: enemyPlanes) {
+			if(entity.deleted) {
+				enemyPlanes.remove(entity);
+			}
+		}
+		CopyOnWriteArrayList<Entity> shots = CollisionManager.INSTANCE.getShots();
+		for(Entity entity: shots) {
+			if(entity.deleted) {
+				shots.remove(entity);
+			}
+		}
 	}
 }

@@ -1,7 +1,6 @@
 package android.alm.pontus.remake;
 
 import android.graphics.Bitmap;
-import android.util.Log;
 
 public class EnemyPlane extends Movable {
 	
@@ -12,7 +11,7 @@ public class EnemyPlane extends Movable {
 		super(x, y, health, points, deltaX, deltaY, bitmap, last);
 		this.last = last;
 		this.movingPattern = movingPattern;
-		CollisionManager.INSTANCE.addEntity(this);
+		CollisionManager.INSTANCE.addPlane(this);
 	}
 
 	@Override

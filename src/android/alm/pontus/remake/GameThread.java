@@ -33,6 +33,7 @@ import android.view.SurfaceHolder;
 						EntityManager.INSTANCE.removeDeleted();
 						CollisionManager.INSTANCE.removeDeleted();
 						CollisionManager.INSTANCE.collision();
+						CounterManager.INSTANCE.updateScore(canvas);
 					}
 				} finally {
 					if(canvas != null) {
