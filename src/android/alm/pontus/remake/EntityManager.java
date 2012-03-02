@@ -1,7 +1,6 @@
 package android.alm.pontus.remake;
 
 import java.util.concurrent.CopyOnWriteArrayList;
-
 import android.graphics.Canvas;
 
 public class EntityManager {
@@ -23,7 +22,7 @@ public class EntityManager {
 	}
 
 	public void drawEntities(Canvas canvas) {
-		for(Entity entity : this.entities){	
+		for(Entity entity : this.entities){
 			entity.onDraw(canvas);
 		}
 	}

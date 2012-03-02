@@ -16,11 +16,8 @@ public final class R {
         public static final int shot=0x7f020002;
         public static final int smallplanes=0x7f020003;
     }
-    public static final class raw {
-        public static final int patterns=0x7f030000;
-    }
     public static final class string {
-        public static final int app_name=0x7f040001;
-        public static final int hello=0x7f040000;
+        public static final int app_name=0x7f030001;
+        public static final int hello=0x7f030000;
     }
 }

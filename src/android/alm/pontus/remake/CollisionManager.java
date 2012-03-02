@@ -26,7 +26,6 @@ public class CollisionManager {
 						entity1.collision();
 						entity2.collision();
 						CounterManager.INSTANCE.addScore(entity1.getPoints() + entity2.getPoints());
-						//TODO call a nice explosion sprite here
 						return true;
 					}
 				}
