@@ -47,6 +47,18 @@ public class Pattern {
 		br.breakList.add(break4);
 		patterns.put(1, br);
 		
+		br.breakList.clear();
+		br.nrOfPlanes = 6;
+		br.deltaX = -1;
+		br.deltaY = 0;
+		br.startX = Panel.screenWidth + 30;
+		br.startY = 100;
+		br.Xmod = 60;
+		br.Ymod = 1;
+		Break break5 = new Break(-50, 100, 1, 1, true);
+		br.breakList.add(break5);
+		patterns.put(2, br);
+		
 //		Log.e("MAP", ""+patterns.keySet());
 //		Log.e("MAP ENTRY", ""+patterns.entrySet());
 	}

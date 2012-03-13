@@ -9,4 +9,21 @@ public class Player extends Movable {
 		CollisionManager.INSTANCE.addPlane(this);
 	}
 
+	@Override
+	public void updatePosition() {
+		if(getY() >= Panel.screenHeight - getBitmapHeight()) { 
+			deltaY = 0;
+			setY(Panel.screenHeight - getBitmapHeight());
+		}
+		if(getY() <= 0 + getBitmapHeight()) {
+			setY(0);
+		}
+		if(getX() >= Panel.screenWidth - getBitmapWidth()) {
+			deltaX = 0;
+			setX(Panel.screenWidth - getBitmapWidth());
+		}
+		if(getX() <= 0 + getBitmapWidth()) {
+			setX(0);
+		}
+	}
 }

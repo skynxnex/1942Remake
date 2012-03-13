@@ -2,6 +2,7 @@ package android.alm.pontus.remake;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Rect;
 
 public class Drawable extends Entity {
@@ -9,6 +10,7 @@ public class Drawable extends Entity {
 	private Bitmap bitmap;
 	Rect sourceRect;
 	private Rect destinationRect;
+	protected Matrix mtx = new Matrix();
 	
 	@SuppressWarnings("unused")
 	private String TAG = getClass().getSimpleName();
@@ -23,7 +25,6 @@ public class Drawable extends Entity {
 //		Log.e("HEIGHT", ""+sourceRect.height());
 	}
 
-	// TODO methods for drawing
 	@Override
 	public void onDraw(Canvas canvas) {
 		destinationRect = new Rect(getX(), getY(), getX()+getBitmapWidth(), getY()+getBitmapHeight());
@@ -33,6 +34,14 @@ public class Drawable extends Entity {
 	@Override
 	public Rect getRect() {
 		return destinationRect;
+	}
+	
+	public int getCenterX() {
+		return getX() + getBitmapWidth() / 2;
+	}
+	
+	public int getCenterY() {
+		return getY() + getBitmapHeight() / 2;
 	}
 
 	public int getBitmapHeight() {
@@ -49,5 +58,11 @@ public class Drawable extends Entity {
 
 	public void setBitmap(Bitmap bitmap) {
 		this.bitmap = bitmap;
+	}
+	
+	public void rotateBitmap(Bitmap bitmap) {
+		mtx.setRotate((float)direction, getCenterX(), getCenterY());
+		Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), mtx, true);
+		this.bitmap = rotatedBitmap;
 	}
 }

@@ -9,12 +9,15 @@ public class CollisionManager {
 	
 	private CopyOnWriteArrayList<Entity> enemyPlanes;
 	private CopyOnWriteArrayList<Entity> shots;
+	private CopyOnWriteArrayList<Entity> bombs;
+	
 	@SuppressWarnings("unused")
 	private String TAG = getClass().getSimpleName();
 	
 	public CollisionManager () {
 		enemyPlanes 	= new CopyOnWriteArrayList<Entity>();
 		shots			= new CopyOnWriteArrayList<Entity>();
+		bombs			= new CopyOnWriteArrayList<Entity>();
 	}
 	
 	public boolean collision() {
@@ -25,10 +28,16 @@ public class CollisionManager {
 					if(Rect.intersects(entity1.getRect(), entity2.getRect())) {
 						entity1.collision();
 						entity2.collision();
+						new Explosion(entity1.getX(), entity1.getY(), Panel.explosion, 25);
 						CounterManager.INSTANCE.addScore(entity1.getPoints() + entity2.getPoints());
 						return true;
 					}
 				}
+			}
+		}
+		for(Entity entity: bombs) {
+			if(Rect.intersects(entity.getRect(), Panel.player.getRect())) {
+				GameThread.running = false;
 			}
 		}
 		return false;
@@ -63,5 +72,15 @@ public class CollisionManager {
 
 	public void addShot(Entity entity) {
 		this.shots.add(entity);
+	}
+	
+	public void addBomb(Entity entity) {
+		this.bombs.add(entity);
+	}
+
+	public void clearLists() {
+		enemyPlanes.clear();
+		bombs.clear();
+		shots.clear();
 	}
 }

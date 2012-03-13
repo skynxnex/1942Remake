@@ -48,7 +48,7 @@ public class EntityManager {
 	public void removeDeleted() {
 		for(Entity entity: entities) {
 			if(entity.deleted) {
-				if(entity.last) {
+				if(entity.last) { //TODO refactor this!!!
 					Panel.newWave = true;
 				}
 				entities.remove(entity);
@@ -66,5 +66,9 @@ public class EntityManager {
 				shots.remove(entity);
 			}
 		}
+	}
+
+	public void clearLists() {
+		entities.clear();
 	}
 }

@@ -4,18 +4,33 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-sdk android:minSdkVersion="15" />
+    <uses-sdk android:minSdkVersion="8" />
 
     <application
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name="android.alm.pontus.remake.RemakeActivity"
-            android:label="@string/app_name" android:theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+            android:name="android.alm.pontus.remake.Menu"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="android.alm.pontus.remake.RemakeActivity"
+            android:label="@string/app_name" android:theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen" android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.alm.pontus.remake.REMAKEACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="android.alm.pontus.remake.Highscore"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.alm.pontus.remake.HIGHSCORE" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
